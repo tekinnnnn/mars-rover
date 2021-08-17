@@ -39,10 +39,12 @@ jobs:
         composer run-script fresh-install
         composer run-script install-dev
     - name: Execute tests (Unit and Feature tests) via PHPUnit
+      env:
+        DB_DATABASE: "marstest"
       run: |
         composer run-script test
     - name: Run Migrations for Prod
       run: |
-        composer run-script migrate
+        php artisan migrate
 
 
