@@ -12,6 +12,7 @@
         "ext-pdo": "*",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.3",
+        "heroku/heroku-buildpack-php": "^196.0",
         "laravel/framework": "^8.54",
         "laravel/tinker": "^2.5"
     },
