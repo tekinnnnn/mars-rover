@@ -57,7 +57,7 @@
             "@php artisan db:seed"
         ],
         "test": [
-            "@php artisan test"
+            "@php artisan test --testsuite=Feature"
         ]
     },
     "extra": {
