@@ -37,7 +37,7 @@ jobs:
         composer run-script fresh-install
         composer run-script install-dev
     - name: Execute tests (Unit and Feature tests) via PHPUnit
-      run: vendor/bin/phpunit
+      run: composer run-script test
     - name: Fresh install
       run: |
         composer run-script fresh-install
