@@ -20,9 +20,8 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('/', function () {
-    response('welcome to my project. please follow link below to go swagger documentation');
+    return response('welcome to my project. please follow <a href="https://app.swaggerhub.com/apis-docs/t3277/mars-rover/1.0.0">this link</a> to go swagger documentation');
 });
-
 Route::post('/plateau', [PlateauController::class, 'store']);
 Route::get('/plateau', [PlateauController::class, 'all']);
 Route::get('/plateau/{plateauId}', [PlateauController::class, 'show']);
