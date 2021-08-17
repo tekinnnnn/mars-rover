@@ -7,57 +7,56 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Mars Rover API Challenge
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## About Project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p>A squad of robotic rovers are to be landed by NASA on a plateau on Mars. This plateau, which is
+curiously rectangular, must be navigated by the rovers so that their on board cameras can get a
+complete view of the surrounding terrain to send back to Earth.</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p>A rover's position and location is represented by a combination of x and y co-ordinates and a letter
+representing one of the four cardinal compass points. The plateau is divided up into a grid to
+simplify navigation. An example position might be 0, 0, N, which means the rover is in the bottom
+left corner and facing North.</p>
 
-## Learning Laravel
+<p>In order to control a rover, NASA sends a simple string of letters. The possible letters are 'L', 'R' and
+'M'. 'L' and 'R' makes the rover spin 90 degrees left or right respectively, without moving from its
+current spot. 'M' means move forward one grid point, and maintain the same heading.
+Assume that the square directly North from (x, y) is (x, y+1).
+Create a Web API to create and manage rovers. Resources must be created and managed via
+RESTful endpoints.</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Input :
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To create a new plateau, some endpoint should accept X and Y parameters as the upper-right
+coordinates.
 
-## Laravel Sponsors
+To create a new rover, an endpoint should accept target plateau and deployment coordinates and
+an initial heading direction.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Assuming there is a plateau and at least 1 rover, rovers will accept an array of commands in the
+request body.
 
-### Premium Partners
+Example request body:
+```
+{
+"commands": "LMLMLMLMM"
+}
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
+### Response
 
-## Contributing
+The response for each rover should be its final coordinates and heading.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Expected endpoints:
+- Create plateau
+- Get plateau
+- Create rover
+- Send commands to rover (sample request above)
+- Get rover
+- Get rover state
 
-## Code of Conduct
+## Online Documentation
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Please see **[Swagger Hub](https://app.swaggerhub.com/apis-docs/t3277/mars-rover/1.0.0)**

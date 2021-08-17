@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\PlateauController;
+use App\Http\Controllers\RoverController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});*/
+
+Route::get('/', function () {
+    response('welcome to my project. please follow link below to go swagger documentation');
 });
+
+Route::post('/plateau', [PlateauController::class, 'store']);
+Route::get('/plateau', [PlateauController::class, 'all']);
+Route::get('/plateau/{plateauId}', [PlateauController::class, 'show']);
+Route::post('/plateau/{plateauId}/rover', [RoverController::class, 'store']);
+Route::get('/plateau/{plateauId}/rover', [RoverController::class, 'all']);
+Route::get('/rover', [RoverController::class, 'all']);
+Route::get('/rover/{roverId}', [RoverController::class, 'show']);
+Route::patch('/rover/{roverId}', [RoverController::class, 'command']);
