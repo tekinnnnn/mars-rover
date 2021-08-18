@@ -54,4 +54,4 @@ Expected endpoints:
 
 ## Online Documentation
 
-Please see **[Swagger Hub](https://app.swaggerhub.com/apis-docs/t3277/mars-rover/1.0.0)**
+Please see **[Swagger Hub](https://app.swaggerhub.com/apis-docs/tekinnnnn/mars-rover-oas3/1.0.0-oas3)**
